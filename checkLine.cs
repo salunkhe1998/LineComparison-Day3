@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace LineComparison
 {
     public class LineComparison
     {
         public static void checkLine()
         {
+
             Console.WriteLine("Enter x1 :- ");
             int x1 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter x2 :- ");
@@ -29,14 +29,28 @@ namespace LineComparison
             int b2 = Convert.ToInt32(Console.ReadLine());
 
             double Length1 = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+
             Console.WriteLine("Length of First line is  :- " + Length1);
 
             double Length2 = Math.Sqrt(Math.Pow(a2 - a1, 2) + Math.Pow(b2 - b1, 2));
+
             Console.WriteLine("Length of Second line is  :- " + Length2);
 
-            // Console.WriteLine(System.Object.ReferenceEquals(Length1, Length2));
-            //Console.WriteLine("Equals = "+ (Length1==Length2));
-            Console.WriteLine("Equals = " + Length1.Equals(Length2));
+            int compare = Length1.CompareTo(Length2);
+            if (compare > 0)
+            {
+                Console.WriteLine("Length of First line {0} is greater than {1} length of Second line.", Length1, Length2);
+            }
+            else if (compare < 0)
+            {
+                Console.WriteLine("Length of First line ( {0} )is less than ( {1} ) length of Second line.", Length1, Length2);
+            }
+            else
+            {
+                Console.WriteLine("Length of First line ( {0} )is equal to  ( {1} ) length of Second line.}", Length1, Length2);
+            }
+
         }
+
     }
 }
